@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "crew_b2b_meeting_prep"
+version = "0.1.0"
+description = "crew_b2b_meeting_prep using crewAI"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+crewai = { extras = ["tools"], version = "^0.35.8" }
+
+[tool.poetry.scripts]
+crew_b2b_meeting_prep = "crew_b2b_meeting_prep.main:run"
+train = "crew_b2b_meeting_prep.main:train"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
