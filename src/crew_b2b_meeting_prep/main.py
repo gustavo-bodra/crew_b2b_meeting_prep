@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 import sys
 from crew_b2b_meeting_prep.crew import CrewB2BMeetingPrepCrew
+from datetime import datetime
 
 
 def run():
-    # Replace with your inputs, it will automatically interpolate any tasks and agents information
     inputs = {
-        'topic': 'AI LLMs'
+        'company': 'Bauminas',
+        'date': datetime.today().strftime('%Y-%m-%d')
     }
     CrewB2BMeetingPrepCrew().crew().kickoff(inputs=inputs)
 
@@ -15,7 +16,10 @@ def train():
     """
     Train the crew for a given number of iterations.
     """
-    inputs = {"topic": "AI LLMs"}
+    inputs = {
+        'company': 'Bauminas',
+        'date': datetime.today().strftime('%Y-%m-%d')
+    }
     try:
         CrewB2BMeetingPrepCrew().crew().train(n_iterations=int(sys.argv[1]), inputs=inputs)
 

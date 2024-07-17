@@ -1,15 +1,21 @@
 research_task:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is 2024.
+    Conduzir uma pesquisa aprofundada sobre {company}
+    Traga dados financeiros, notícias recentes e relevantes e principais executivos.
+    Traga também notícias relacionadas as áreas de atuação da empresa.
+    Se houver um site de relações com investidores, busque neste site informações sobre a empresa.
+    Sempre busque dados mais recentes. Considere que hoje é {date}.
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
+    Lista de tópicos com informações relevantes sobre a empresa pesquisada.
 
 reporting_task:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Consolide as informações coletadas pelo pesquisador em um relatório detalhado.
   expected_output: >
-    A fully fledge reports with the mains topics, each with a full section of information.
-    Formated as markdown with out '```'
+    Relatório objetivo que traga as seguintes informações:
+    - Áreas de atuação
+    - Notícias recentes
+    - Principais desafios
+    - Principais anúncios
+    - Sugestão de conteúdo para abertura de conversas e criação de rapport.
+    Formate a resposta como markdown, sem '```'
