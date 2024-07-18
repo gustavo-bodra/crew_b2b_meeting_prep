@@ -1,6 +1,7 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
+from src.crew_b2b_meeting_prep.tools import EmailTool
 
 @CrewBase
 class CrewB2BMeetingPrepCrew():
@@ -20,7 +21,8 @@ class CrewB2BMeetingPrepCrew():
 	def reporting_analyst(self) -> Agent:
 		return Agent(
 			config=self.agents_config['reporting_analyst'],
-			verbose=True
+			verbose=True,
+			tools=[EmailTool()]
 		)
 
 	@task
@@ -35,7 +37,7 @@ class CrewB2BMeetingPrepCrew():
 		return Task(
 			config=self.tasks_config['reporting_task'],
 			agent=self.reporting_analyst(),
-			output_file='report.md'
+			# output_file='report.md'
 		)
 
 	@crew

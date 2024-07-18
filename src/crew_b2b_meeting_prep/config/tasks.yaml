@@ -11,11 +11,12 @@ research_task:
 reporting_task:
   description: >
     Consolide as informações coletadas pelo pesquisador em um relatório detalhado.
+    Ao final realize o envio do email com o relatório em formato HTML.
   expected_output: >
-    Relatório objetivo que traga as seguintes informações:
+    Relatório, em HTML, objetivo que traga as seguintes informações:
     - Áreas de atuação
     - Notícias recentes
     - Principais desafios
     - Principais anúncios
     - Sugestão de conteúdo para abertura de conversas e criação de rapport.
-    Formate a resposta como markdown, sem '```'
+    Formate a resposta como HTML, sem '```'
