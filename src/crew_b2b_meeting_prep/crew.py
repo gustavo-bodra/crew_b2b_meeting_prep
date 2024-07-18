@@ -1,7 +1,7 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
-from src.crew_b2b_meeting_prep.tools import EmailTool
+from crew_b2b_meeting_prep.tools import EmailTool
 
 @CrewBase
 class CrewB2BMeetingPrepCrew():
