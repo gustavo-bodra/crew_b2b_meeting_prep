@@ -7,7 +7,7 @@ from datetime import datetime
 def run():
     inputs = {
         'company': 'Bauminas',
-        'date': datetime.today().strftime('%Y-%m-%d')
+        'date': '2024-07-21' #datetime.today().strftime('%Y-%m-%d')
     }
     CrewB2BMeetingPrepCrew().crew().kickoff(inputs=inputs)
 
