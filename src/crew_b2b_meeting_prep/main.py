@@ -7,9 +7,9 @@ from datetime import datetime
 def run():
     inputs = {
         'company': 'Bauminas',
-        'date': '2024-07-21' #datetime.today().strftime('%Y-%m-%d')
+        'current_date': '2024-07-21' #datetime.today().strftime('%Y-%m-%d')
     }
-    CrewB2BMeetingPrepCrew().crew().kickoff(inputs=inputs)
+    CrewB2BMeetingPrepCrew().crew().kickoff(inputs=inputs, planning=True)
 
 
 def train():
@@ -18,7 +18,7 @@ def train():
     """
     inputs = {
         'company': 'Bauminas',
-        'date': '2024-07-21'
+        'current_date': '2024-07-21'
     }
     try:
         CrewB2BMeetingPrepCrew().crew().train(n_iterations=int(sys.argv[1]), inputs=inputs)

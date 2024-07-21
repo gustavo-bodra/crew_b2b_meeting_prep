@@ -4,7 +4,7 @@ research_task:
     Traga dados financeiros, notícias recentes e relevantes e principais executivos.
     Traga também notícias relacionadas as áreas de atuação da empresa.
     Se houver um site de relações com investidores, busque neste site informações sobre a empresa.
-    Sempre busque dados mais recentes. Considere que hoje é {date}.
+    Sempre busque dados mais recentes. Considere que hoje é {current_date}.
   expected_output: >
     Lista de tópicos com informações relevantes sobre a empresa pesquisada.
 
