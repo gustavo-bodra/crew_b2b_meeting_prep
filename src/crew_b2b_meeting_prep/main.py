@@ -18,7 +18,7 @@ def train():
     """
     inputs = {
         'company': 'Bauminas',
-        'date': datetime.today().strftime('%Y-%m-%d')
+        'date': '2024-07-21'
     }
     try:
         CrewB2BMeetingPrepCrew().crew().train(n_iterations=int(sys.argv[1]), inputs=inputs)
