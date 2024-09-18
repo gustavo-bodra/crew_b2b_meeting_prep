@@ -8,7 +8,7 @@ def run():
     inputs = {
         'company': 'Bauminas',
     }
-    CrewB2BMeetingPrepCrew().crew().kickoff(inputs=inputs, planning=True)
+    CrewB2BMeetingPrepCrew().crew().kickoff(inputs=inputs)
 
 
 def train():
