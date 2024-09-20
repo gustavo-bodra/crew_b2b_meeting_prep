@@ -1,6 +1,6 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-from crewai_tools import EXASearchTool, SerperDevTool
+from crewai_tools import EXASearchTool, SerperDevTool, PDFSearchTool
 from crew_b2b_meeting_prep.tools import EmailTool
 
 @CrewBase
@@ -10,11 +10,21 @@ class CrewB2BMeetingPrepCrew():
 	tasks_config = 'config/tasks.yaml'
 
 	@agent
-	def researcher(self) -> Agent:
+	def researcher_news(self) -> Agent:
 		return Agent(
-			config=self.agents_config['researcher'],
+			config=self.agents_config['researcher_news'],
 			tools=[SerperDevTool()],
-			verbose=True
+			verbose=True,
+			max_iter=15
+		)
+
+	@agent
+	def researcher_corp(self) -> Agent:
+		return Agent(
+			config=self.agents_config['researcher_corp'],
+			tools=[SerperDevTool(), PDFSearchTool()],
+			verbose=True,
+			max_iter=15
 		)
 
 	@agent
@@ -22,14 +32,22 @@ class CrewB2BMeetingPrepCrew():
 		return Agent(
 			config=self.agents_config['reporting_analyst'],
 			verbose=True,
+			max_iter=15
 			# tools=[EmailTool()]
 		)
 
 	@task
-	def research_task(self) -> Task:
+	def research_task_news(self) -> Task:
 		return Task(
-			config=self.tasks_config['research_task'],
-			agent=self.researcher()
+			config=self.tasks_config['research_task_news'],
+			agent=self.researcher_news()
+		)
+
+	@task
+	def research_task_corp(self) -> Task:
+		return Task(
+			config=self.tasks_config['research_task_corp'],
+			agent=self.researcher_corp()
 		)
 
 	@task
@@ -47,6 +65,6 @@ class CrewB2BMeetingPrepCrew():
 			agents=self.agents,
 			tasks=self.tasks,
 			verbose=2,
-			process=Process.hierarchical,
-			manager_agent=Agent(config=self.agents_config['supervisor'], verbose=True),
+			process=Process.sequential,
+			# manager_agent=Agent(config=self.agents_config['supervisor'], verbose=True),
 		)

@@ -7,6 +7,7 @@ from datetime import datetime
 def run():
     inputs = {
         'company': 'Bauminas',
+        'today': datetime.now().strftime('%Y-%m-%d')
     }
     CrewB2BMeetingPrepCrew().crew().kickoff(inputs=inputs)
 
@@ -17,6 +18,7 @@ def train():
     """
     inputs = {
         'company': 'Bauminas',
+        'today': datetime.now().strftime('%Y-%m-%d')
     }
     try:
         CrewB2BMeetingPrepCrew().crew().train(n_iterations=int(sys.argv[1]), inputs=inputs)

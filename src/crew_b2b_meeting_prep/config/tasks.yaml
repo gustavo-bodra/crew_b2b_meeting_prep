@@ -1,21 +1,38 @@
-research_task:
+research_task_news:
   description: >
-    Conduzir uma pesquisa aprofundada sobre {company}
-    Traga dados financeiros, notícias recentes e relevantes e principais executivos.
-    Traga também notícias relacionadas as áreas de atuação da empresa.
-    Se houver um site de relações com investidores, busque neste site informações sobre a empresa.
-    Sempre busque dados mais recentes.
+    Conduzir uma pesquisa aprofundada sobre {company} e somente sobre esta empresa.
+    Traga as notícias mais recentes desta companhia e traga também notícias relacionadas as áreas de atuação da empresa.
+    Sempre busque dados mais recentes considerando que hoje é: {today}.
+    Use o Google News para buscar as notícias mais recentes e relevantes.
   expected_output: >
-    Lista de tópicos com informações relevantes sobre a empresa pesquisada.
+    Lista de notícias da empresa e relacionadas às áreas de atuação da empresa.
+    Sempre traga as fontes.
+  
+research_task_corp:
+  description: >
+    Conduzir uma pesquisa aprofundada sobre {company} e somente sobre esta empresa.
+    Traga os principais resultados financeiros do último trimestre, relatórios de sustentabilidade, nomes dos principais executivos, entre outros.
+    Sempre busque dados mais recentes considerando que hoje é: {today}.
+    NUNCA invente dados, só extraia as informações que você encontrar.
+    Busque os sites de relações com investidores das empresas para encontrar os dados.
+    Caso encontre PDFs com os relatórios, faça a leitura destes arquivos e extraia as informações relevantes.
+    Você deve olhar para menções sobre programas de treinamento de liderança e inteligência artificial.
+  expected_output: >
+    Lista de dados corporativos da empresa.
+    Sempre traga as fontes.
 
 reporting_task:
   description: >
     Consolide as informações coletadas pelo pesquisador em um relatório detalhado e objetivo.
+    Você não deve incluir a sua opinião no relatório, apenas os fatos com base nos dados que você recebeu dos outros agentes.
   expected_output: >
     Relatório, em markdown, objetivo que traga as seguintes informações:
     - Áreas de atuação
     - Notícias recentes
     - Principais desafios
     - Principais anúncios
+    - Principais executivos
+    - Resultados financeiros
+    - Programas de liderança e inteligência artificial
     - Sugestão de conteúdo para abertura de conversas e criação de rapport.
     Formate a resposta como markdown, sem '```'
