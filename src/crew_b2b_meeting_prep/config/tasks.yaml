@@ -26,7 +26,7 @@ reporting_task:
     Consolide as informações coletadas pelo pesquisador em um relatório detalhado e objetivo.
     Você não deve incluir a sua opinião no relatório, apenas os fatos com base nos dados que você recebeu dos outros agentes.
   expected_output: >
-    Relatório, em markdown, objetivo que traga as seguintes informações:
+    Relatório, em HTML, objetivo que traga as seguintes informações:
     - Áreas de atuação
     - Notícias recentes
     - Principais desafios
@@ -35,4 +35,4 @@ reporting_task:
     - Resultados financeiros
     - Programas de liderança e inteligência artificial
     - Sugestão de conteúdo para abertura de conversas e criação de rapport.
-    Formate a resposta como markdown, sem '```'
+    Formate a resposta como HTML, sem '```'
