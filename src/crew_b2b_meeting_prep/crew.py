@@ -1,6 +1,6 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-from crewai_tools import EXASearchTool, SerperDevTool, PDFSearchTool
+from crewai_tools import EXASearchTool, SerperDevTool, PDFSearchTool, WebsiteSearchTool
 from crew_b2b_meeting_prep.tools import EmailTool
 
 @CrewBase
@@ -13,18 +13,18 @@ class CrewB2BMeetingPrepCrew():
 	def researcher_news(self) -> Agent:
 		return Agent(
 			config=self.agents_config['researcher_news'],
-			tools=[SerperDevTool()],
+			tools=[SerperDevTool(), WebsiteSearchTool()],
 			verbose=True,
-			max_iter=15
+			# max_iter=15
 		)
 
 	@agent
 	def researcher_corp(self) -> Agent:
 		return Agent(
 			config=self.agents_config['researcher_corp'],
-			tools=[SerperDevTool(), PDFSearchTool()],
+			tools=[SerperDevTool(), PDFSearchTool(), WebsiteSearchTool()],
 			verbose=True,
-			max_iter=15
+			# max_iter=15
 		)
 
 	@agent
@@ -32,7 +32,7 @@ class CrewB2BMeetingPrepCrew():
 		return Agent(
 			config=self.agents_config['reporting_analyst'],
 			verbose=True,
-			max_iter=15
+			# max_iter=15
 			# tools=[EmailTool()]
 		)
 
@@ -65,6 +65,8 @@ class CrewB2BMeetingPrepCrew():
 			agents=self.agents,
 			tasks=self.tasks,
 			verbose=2,
-			process=Process.sequential,
-			# manager_agent=Agent(config=self.agents_config['supervisor'], verbose=True),
+			process=Process.hierarchical,
+			# planning=True,
+			# memory=True,
+			manager_agent=Agent(config=self.agents_config['supervisor'], verbose=True),
 		)
